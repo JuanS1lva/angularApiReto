@@ -1,0 +1,32 @@
+<div class="container position-relative">
+  <div
+    id="datosPersonajes"
+    class="row datosPersonajes position-absolute"
+  >
+    <div class="col mt-5"
+      *ngFor="let personaje of personajes"
+    >
+      <div 
+        class="card" 
+        style="width: 10rem;"
+      >
+        <img src="{{personaje.image}}" class="card-img-top" alt="{{personaje.name}}">
+        <div class="card-body">
+          <h5 class = "card-title" >{{personaje.name}}</h5>
+          <p class="card-text">{{personaje.species}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    Prev: {{next}}
+  </div>
+  <ul id="paginacion" class="pagination">
+    <li class="page-item" [ngClass]="{'disabled':prevDisabled}">
+      <a class="page-link" (click)="obtenerInfo(prev)">Previous</a>
+    </li>
+    <li class="page-item" [ngClass]="{'disabled':nextDisabled}">
+      <a class="page-link" (click)="obtenerInfo(next)">Next</a>
+    </li>
+  </ul>
+</div>
